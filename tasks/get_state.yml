@@ -1,0 +1,21 @@
+---
+- name: Get current Flow Microsegmentation state
+  ansible.builtin.uri:
+    url: "https://{{ nutanix_host }}:{{ nutanix_port }}/api/nutanix/v3/services/microseg/status"
+    method: GET
+    validate_certs: "{{ validate_certs }}"
+    body_format: json
+    status_code: 200
+    headers:
+      Authorization: "{{ nutanix_api_auth }}"
+  register: nutanix_flow_microseg_state
+
+- name: Debug nutanix_flow_microseg_state
+  ansible.builtin.debug:
+    var: nutanix_flow_microseg_state
+  when:
+    - nutanix_debug
+
+- name: Current status of Flow Microsegmentation service(s)
+  ansible.builtin.debug:
+    msg: "Flow Microsegmentation is currently in a '{{ nutanix_flow_microseg_state.json.service_enablement_status }}' state."
