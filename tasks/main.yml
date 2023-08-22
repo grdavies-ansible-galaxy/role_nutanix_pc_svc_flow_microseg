@@ -21,11 +21,11 @@
 - name: Enable Flow Microsegmentation
   ansible.builtin.include_tasks: enable_service.yml
   when:
-    - nutanix_flow_microseg_state.json.service_enablement_status != "ENABLED"
+    - nutanix_flow_microseg_state.json.service_enablement_status | lower != "enabled"
     - nutanix_flow_mseg_enable | default(False)
 
 - name: Disable Flow Microsegmentation
   ansible.builtin.include_tasks: disable_service.yml
   when:
-    - nutanix_flow_microseg_state.json.service_enablement_status == "ENABLED"
+    - nutanix_flow_microseg_state.json.service_enablement_status | lower == "enabled"
     - not nutanix_flow_mseg_enable | default(True)
