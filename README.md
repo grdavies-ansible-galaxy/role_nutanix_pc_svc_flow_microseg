@@ -2,7 +2,6 @@
 
 This Ansible role manage the Flow Microsegmentation service within Prism Central.
 
-
 ## Role Variables
 
 | Variable                                          | Required | Default | Choices                   | Comments                                                                                               |
@@ -15,15 +14,13 @@ This Ansible role manage the Flow Microsegmentation service within Prism Central
 | nutanix_debug                                     | no       | no      | yes / no                  | Whether to output variable contents for debugging purposes.                                            |
 | nutanix_flow_mseg_enable                          | yes      |         | yes / no                  | Set value to 'yes' to enable Flow Microsegmentation.                                                   |
 
-
 ## Dependencies
 
 None
 
-
 ## Example Playbook
 
-```
+```YAML
 - hosts: localhost
   gather_facts: false
   roles:
@@ -34,7 +31,6 @@ None
     nutanix_password: nx2Tech283!
     nutanix_flow_mseg_enable: yes
 ```
-
 
 ## License
 
