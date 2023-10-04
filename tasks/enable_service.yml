@@ -22,7 +22,7 @@
   ansible.builtin.import_role:
     name: grdavies.role_nutanix_prism_monitor_task
   vars:
-    role_nutanix_prism_monitor_task_host: "{{ role_nutanix_pc_svc_flow_microseg_host_pc_svc_flow_microseg_host }}"
+    role_nutanix_prism_monitor_task_host: "{{ role_nutanix_pc_svc_flow_microseg_host }}"
     role_nutanix_prism_monitor_task_host_username: "{{ role_nutanix_pc_svc_flow_microseg_host_username }}"
     role_nutanix_prism_monitor_task_host_password: "{{ role_nutanix_pc_svc_flow_microseg_host_password }}"
     role_nutanix_prism_monitor_task_host_port: "{{ role_nutanix_pc_svc_flow_microseg_host_port | default(omit) }}"
